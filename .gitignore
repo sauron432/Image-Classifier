@@ -1,0 +1,11 @@
+# Python Environment
+venv/
+__pycache__/
+
+# Jupyter Notebook and general files
+.ipynb_checkpoints
+
+# Large files and models
+*.h5
+*.keras
+*/data/
