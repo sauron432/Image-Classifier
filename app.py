@@ -1,3 +1,5 @@
+"""Model Deloyment"""
+
 import tensorflow as tf
 from tensorflow.keras.models import load_model
 import streamlit as st
@@ -6,7 +8,6 @@ from PIL import Image
 
 st.header('Image Classification Model')
 
-# Load your trained model
 model = load_model('Image_classifier.keras')
 
 # List of class labels
@@ -16,7 +17,7 @@ data_cat = ['apple','banana','beetroot','bell pepper','cabbage','capsicum','carr
  'pear','peas','pineapple','pomegranate','potato','raddish','soy beans','spinach',
  'sweetcorn','sweetpotato','tomato','turnip','watermelon']
 
-# ---- IMAGE UPLOAD INPUT ----
+#IMAGE UPLOAD INPUT 
 uploaded_image = st.file_uploader("Upload an image", type=['jpg', 'jpeg', 'png'])
 
 if uploaded_image is not None:
@@ -27,8 +28,8 @@ if uploaded_image is not None:
     image = Image.open(uploaded_image)
     image = image.resize((180, 180))
     img_array = tf.keras.utils.img_to_array(image)
-    img_array = tf.expand_dims(img_array, 0)   # Convert to batch
-
+    # Convert to batch
+    img_array = tf.expand_dims(img_array, 0)   
     # Prediction
     predictions = model.predict(img_array)
     score = tf.nn.softmax(predictions[0])
