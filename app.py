@@ -6,7 +6,7 @@ import streamlit as st
 import numpy as np
 from PIL import Image
 
-st.header('Image Classification Model')
+st.header('Fruit Image Classification Model')
 
 model = load_model('Image_classifier.keras')
 
