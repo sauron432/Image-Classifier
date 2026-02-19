@@ -1,5 +1,6 @@
 # Python Environment
-venv/
+venv
+.venv
 __pycache__/
 
 # Jupyter Notebook and general files
